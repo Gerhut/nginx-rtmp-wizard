@@ -3,7 +3,7 @@ from django.db.models import signals
 from django.dispatch import receiver
 from django.template.loader import get_template
 
-from os import execlp
+from os import system
 
 from . import models
 
@@ -24,4 +24,4 @@ def configure_nginx(sender, **kwargs):
     rtmp_conf = get_template('rtmp.conf').render({ 'servers': servers })
     with open(settings.RTMP_CONF, 'w') as f:
         f.write(rtmp_conf)
-    execlp('nginx', '-s', 'reload')
+    system('nginx -s reload')
