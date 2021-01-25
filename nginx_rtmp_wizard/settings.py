@@ -128,8 +128,13 @@ STATIC_ROOT = BASE_DIR / 'staticfiles'
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 
+# nginx-rtmp-wizard configs
+
 RTMP_HOSTNAME = '127.0.0.1'
+
 RTMP_CONF = BASE_DIR / 'rtmp.log'
+
+RTMP_NGINX = 'nginx'
 
 try:
     from local_settings import *

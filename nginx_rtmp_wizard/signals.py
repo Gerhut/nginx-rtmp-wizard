@@ -24,4 +24,4 @@ def configure_nginx(sender, **kwargs):
     rtmp_conf = get_template('rtmp.conf').render({ 'servers': servers })
     with open(settings.RTMP_CONF, 'w') as f:
         f.write(rtmp_conf)
-    system('nginx -s reload')
+    system(settings.RTMP_NGINX + ' -s reload')
